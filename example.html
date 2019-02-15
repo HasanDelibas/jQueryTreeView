@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="utf-8">
+	<title>TreeView Example</title>
+
+<script type="text/javascript" src="/cdn/jquery.min.js" ></script>
+
+<script type="text/javascript" src="/cdn/jQueryTreeView/js/jquery.treeview.js"></script>
+</head>
+
+<link rel="stylesheet" type="text/css" href="css/jquery.treeview.css">
+
+
+<link rel="stylesheet" type="text/css" href="/cdn/font-awesome/font-awesome.min.css">
+
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+
+var treeObject = [
+	{
+		text:"Parent 1", // Required
+		checked:true, // Optional
+		id:15,otherDatas:"Other Datas", // Other Datas Optional
+		children:[ // Required
+			{ text:"Child 1" /* Required */, checked:true	},
+			{ text:"Child 2" /* Required */	}
+		]
+	},
+	{
+		text:"Parent 2", // Required
+		children:[
+			{
+				text:"Parent 3",
+				children:[
+					{text:"Child 3",checked:true},
+					{text:"Child 4"}
+				]
+			}
+		]
+	}
+]
+	var tw = new TreeView(
+		treeObject,
+		{showAlwaysCheckBox:true,fold:false});
+	document.body.appendChild( tw.root	 )
+
+
+</script>
+<!-- 
+	BUG LIST
+	
+
+-->
+
+</html>
