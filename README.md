@@ -11,6 +11,7 @@
 		className : String Default ""
 		showAlwaysCheckBox : Boolean Default False
 		fold : Boolean Default false
+		openAllFold : Boolean Default false
 	}
 </pre>
 
