@@ -223,11 +223,11 @@ function TreeView(datas, options) {
 
     this.load(datas)
     if (options.openAllFold) {
-        $(root).find("[fold-button]").each(function (index, el) {
+        $(this.root).find("[fold-button]").each(function (index, el) {
             groupOpen.bind(this);
         })
     } else {
-        $(root).find("[fold-button]").each(function (index, el) {
+        $(this.root).find("[fold-button]").each(function (index, el) {
             groupClose.bind(this);
         })
     }
