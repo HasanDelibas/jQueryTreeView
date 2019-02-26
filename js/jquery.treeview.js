@@ -115,6 +115,9 @@ function TreeView(datas, options) {
         group.className = "group"
         if ("className" in options)
             group.className += options.className;
+        for (var keys = Object.keys(data), i = 0; i < key.length ; i++) {
+            group.setAttribute("data-" + keys[i], data[keys[i]]);
+        }
         if ("fold" in options) {
             var foldButton = document.createElement("i");
             foldButton.className = "fa fa-caret-right";
@@ -221,15 +224,26 @@ function TreeView(datas, options) {
         return ret;
     }
 
-    this.load(datas)
+    this.load(datas);
+    this.openAllFold = function (item) {
+        if (item == null) item = this.root;
+        $(item).find("[fold-button]").each(function (index, el) {
+            
+            groupOpen.bind(this)();
+        })
+    }
+    this.closeAllFold = function (item) {
+        if (item == null) item = this.root;
+        $(item).find("[fold-button]").each(function (index, el) {
+
+            groupClose.bind(this)();
+        })
+    }
+    
     if (options.openAllFold) {
-        $(this.root).find("[fold-button]").each(function (index, el) {
-            groupOpen.bind(this);
-        })
+        this.openAllFold();
     } else {
-        $(this.root).find("[fold-button]").each(function (index, el) {
-            groupClose.bind(this);
-        })
+        this.closeAllFold();
     }
     return this;
 
