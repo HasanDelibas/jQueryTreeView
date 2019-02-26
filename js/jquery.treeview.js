@@ -133,7 +133,7 @@ function TreeView(datas, options) {
         item.className = "item";
         item.innerHTML = data.text;
         item.data = data;
-        for (var keys = Object.keys(data), i = 0; i < key.length ; i++) {
+        for (var keys = Object.keys(data), i = 0; i < keys.length ; i++) {
             item.setAttribute("data-" + keys[i], data[keys[i]]);
         }
         if ("checked" in data || options.showAlwaysCheckBox == true) {
