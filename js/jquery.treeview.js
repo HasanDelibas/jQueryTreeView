@@ -115,9 +115,7 @@ function TreeView(datas, options) {
         group.className = "group"
         if ("className" in options)
             group.className += options.className;
-        for (var keys = Object.keys(data), i = 0; i < key.length ; i++) {
-            group.setAttribute("data-" + keys[i], data[keys[i]]);
-        }
+
         if ("fold" in options) {
             var foldButton = document.createElement("i");
             foldButton.className = "fa fa-caret-right";
@@ -135,8 +133,9 @@ function TreeView(datas, options) {
         item.className = "item";
         item.innerHTML = data.text;
         item.data = data;
-        if ("id" in data)
-            item.setAttribute("data-id", data.id);
+        for (var keys = Object.keys(data), i = 0; i < key.length ; i++) {
+            item.setAttribute("data-" + keys[i], data[keys[i]]);
+        }
         if ("checked" in data || options.showAlwaysCheckBox == true) {
             var checked = document.createElement("i");
             checked.setAttribute("check-icon", "1");
